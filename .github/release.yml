@@ -5,6 +5,7 @@ changelog:
   categories:
     - title: 'Features'
       labels:
+        - 'add'
         - 'feature'
         - 'enhancement'
     - title: 'Bug Fixes'
@@ -14,4 +15,3 @@ changelog:
     - title: 'Other Changes'
       labels:
         - '*'
-      commits: true
