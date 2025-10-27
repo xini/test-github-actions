@@ -5,6 +5,9 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: write
+      
 jobs:
   createreleasefropmtag:
     name: Create release from tag
@@ -12,10 +15,7 @@ jobs:
     if: github.repository_owner == 'xini' || github.repository_owner == 'innowebau'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Create release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Essential for authentication
-        run: gh release create "$GITHUB_REF_NAME" --generate-notes --fail-on-no-commits
+        run: gh release create "$GITHUB_REF_NAME" --repo="$GITHUB_REPOSITORY" --generate-notes --fail-on-no-commits
